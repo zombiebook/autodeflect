@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- 원래 쓰던 설정 그대로 유지 -->
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <!-- Duckov 설치 경로 (Duckov.exe가 있는 폴더) -->
+    <DuckovPath>C:\Program Files (x86)\Steam\steamapps\common\Escape from Duckov</DuckovPath>
+
+    <!-- Managed 폴더 -->
+    <SubPath>\Duckov_Data\Managed\</SubPath>
+
+    <!-- DLL 이름 / 네임스페이스 -->
+    <AssemblyName>autodeflect</AssemblyName>
+    <RootNamespace>autodeflect</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- TeamSoda.* : Duckov.Core / Duckov.Modding / Utilities 등 -->
+    <Reference Include="$(DuckovPath)$(SubPath)TeamSoda.*" />
+
+    <!-- 아이템 스탯 시스템 -->
+    <Reference Include="$(DuckovPath)$(SubPath)ItemStatsSystem.dll" />
+
+    <!-- Unity 관련 DLL 전체 (UnityEngine, Physics 등) -->
+    <Reference Include="$(DuckovPath)$(SubPath)Unity*" />
+
+    <!-- 🔥 FMODUnity: EventInstance 에러 해결용 -->
+    <Reference Include="$(DuckovPath)$(SubPath)FMODUnity.dll" />
+  </ItemGroup>
+</Project>
