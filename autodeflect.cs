@@ -34,9 +34,11 @@ namespace autodeflect
     {
         private static AutoDeflectManager _instance;
 
-        private float _scanInterval = 0.05f;
+        private float _scanInterval = 0.02f;
         private float _nextScanTime = 0f;
-        private float _autoRadius = 3.5f;
+        private float _autoRadius = 5.0f;
+
+        private float _deflectChance = 1.0f; // 100% 확률
 
         private Vector3 _playerPos;
 
